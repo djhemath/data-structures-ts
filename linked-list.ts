@@ -37,4 +37,31 @@ export class LinkedList {
       return false;
     }
   }
+
+  public print() {
+    console.log(JSON.stringify(this, null, 2));
+  }
+
+  public printAsPictorial() {
+    let currentNode = this.head;
+
+    if(!currentNode) {
+      return '[]';
+    }
+
+    let result = '[ ';
+
+    while(currentNode) {
+      result += `${currentNode.value}`;
+      currentNode = currentNode?.next;
+      if(currentNode?.value) {
+        result += ` -> `;
+      }
+    }
+
+    result += ' ]';
+    result += ` (${this.length})`;
+
+    console.log(result);
+  }
 }
