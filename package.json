@@ -1,0 +1,18 @@
+{
+  "name": "data-strctures-ts",
+  "version": "1.0.0",
+  "description": "Implementation of data structures in TypeScript",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsc && node dist/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/djhemath/data-structures-ts.git"
+  },
+  "author": "DJ Hemath <djhemath@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
