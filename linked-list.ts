@@ -19,4 +19,22 @@ export class LinkedList {
   private decrementLength() {
     this.length -= 1;
   }
+
+  public append(value: any): boolean {
+    if(this.head === null) {
+      return false;
+    }
+
+    const newNode = new Node(value);
+
+    if(this.tail !== null) {
+      this.tail.next = newNode;
+      this.tail = newNode;
+
+      this.incrementLength();
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
