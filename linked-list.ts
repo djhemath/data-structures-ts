@@ -38,6 +38,43 @@ export class LinkedList {
     }
   }
 
+  public remove(index: number) {
+    if(!this.head) {
+      return false;
+    }
+
+    // First element
+    if(index === 0) {
+      this.head = this.head.next;
+      this.decrementLength();
+      return true;
+    }
+
+    let counter = 0;
+    let currentNode: (Node | null) = this.head;
+    let previousElement :(Node | null) = null;
+
+    while(currentNode) {
+      if((counter === index) && previousElement) {
+        previousElement.next = currentNode.next;
+
+        // Last element
+        if(index === (this.length-1)) {
+          this.tail = previousElement;
+        }
+
+        this.decrementLength();
+        return true;
+      }
+
+      counter += 1;
+      previousElement = currentNode;
+      currentNode = currentNode.next;
+    }
+
+    return false;
+  }
+
   public print() {
     console.log(JSON.stringify(this, null, 2));
   }
