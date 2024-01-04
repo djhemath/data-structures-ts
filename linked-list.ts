@@ -51,6 +51,39 @@ export class LinkedList {
     this.incrementLength();
   }
 
+  public insert(value: any, index: number) {
+    const newNode = new Node(value);
+
+    if(!this.head || (this.length < index)) {
+      return false;
+    }
+
+    let counter = 0;
+    let currentNode: (Node | null) = this.head;
+    let previousNode: (Node | null) = currentNode;
+
+    while(counter < index) {
+      if(!currentNode) {
+        return false;
+      }
+
+      previousNode = currentNode;
+      currentNode = currentNode.next;
+      counter += 1;
+    }
+
+    if(currentNode && previousNode) {
+      previousNode.next = newNode;
+      newNode.next = currentNode;
+
+      this.incrementLength();
+
+      return true;
+    }
+
+    return false;
+  }
+
   public remove(index: number) {
     if(!this.head) {
       return false;
