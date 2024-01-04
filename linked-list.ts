@@ -38,6 +38,19 @@ export class LinkedList {
     }
   }
 
+  public prepend(value: any) {
+    const newNode = new Node(value);
+
+    if(!this.head) {
+      this.head = newNode;
+    } else {
+      newNode.next = this.head
+      this.head = newNode;
+    }
+
+    this.incrementLength();
+  }
+
   public remove(index: number) {
     if(!this.head) {
       return false;
